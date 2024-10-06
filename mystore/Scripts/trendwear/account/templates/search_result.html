@@ -1,0 +1,71 @@
+{%include 'navbar.html'%}
+{% load static %}
+
+<style>
+    .h1 {
+        width: 100%;
+        padding: 0px 0 10px 0px;
+        font-size: 30px;
+        text-decoration: underline;
+    }
+
+    #list {
+        margin-top: 0px;
+    }
+
+    .card-img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    .card-text {
+        font-size: 16px;
+    }
+
+    .site {
+        margin-right: 1110px;
+    }
+
+    .para {
+        margin-top: 50px
+    }
+</style>
+
+
+
+<div id="list" class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <h1 class="h1">Results for "{{ srch }}"</h1>
+        {%if wl%}
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for i in wl %}
+
+            <div class="col" style="width: 20%;">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Link the product image to the category-specific product list page -->
+                        <a href="{% url 'products_by_category' category_id=i.category.id %}">
+                            <img class="card-img" src="{{ i.image.url }}" alt="{{ i.name }}">
+                        </a>
+                        <p class="card-text"> {{ i.name }}</p>
+                        <p class="card-text">Price: ₹{{ i.price }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">
+                                    <a href="addtocart/{{i.id}}">Add to Cart</a>
+                                </button>
+                            </div>
+                            <small class="text-body-secondary">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+        {%else%}
+        <p>no products found</p>
+        {%endif%}
+    </div>
+</div>

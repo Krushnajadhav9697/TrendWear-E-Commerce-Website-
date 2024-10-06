@@ -1,0 +1,147 @@
+{%include 'navbar.html'%}
+{% load static %}
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Poppins:wght@400&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .welcome {
+            font-family: 'Roboto', sans-serif;
+            /* Different font for headings */
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-top: 0px;
+            color: black;
+        }
+
+        h5 {
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .no {
+            padding-bottom: 10px;
+        }
+
+        #order_no_box {
+            width: 25vw;
+            height: 8vh;
+        }
+
+        .subheading {
+            font-family: 'Poppins', sans-serif;
+            /* Keeping Poppins for subheading */
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .service-box {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .service-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .service-container {
+                flex-direction: column;
+            }
+        }
+
+        .service-box p {
+            font-family: 'Poppins', sans-serif;
+            /* Different font for paragraphs */
+            text-align: left;
+            margin: 0;
+            line-height: 1.5;
+            font-weight: normal;
+            /* Ensures paragraph text is not bold */
+        }
+
+        .service-box p+p {
+            text-indent: 0;
+        }
+    </style>
+</head>
+
+
+
+
+<div class="header">
+    <h1 class="welcome">Welcome to Customer Service</h1>
+    <p class="subheading">How can I help you?</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="service-box">
+                <h5>I Want to know where is my order</h5>
+                <p>Enter the order number found in the order confirmation email</p> <br>
+                <form action="" method="GET">
+                    <p class="no">Order Number :</p>
+                    <input type="text" id="order_no_box" class="form-control mb-3" name="order_number"
+                        placeholder="e.g.457848" required>
+                    <br><br>
+                    <div class="d-flex justify-content-center">
+
+                        <button type="submit" class="btn btn-primary">Track Order</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="service-box">
+                <h5>I want to Return Something</h5>
+                <p>Register returns easily online. All you need is the order number found in the order confirmation
+                    email, and the email address used when placing your order.</p> <br>
+                <p>The return request must be raised with us within 15 days from the date you receive your parcel.
+                </p>
+                <br><br>
+                <div class="d-flex justify-content-center">
+                    <a href="" class="btn btn-primary">Return Item</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="height: 50px;">
+
+</div>
+
+
+
+
+<footer style="width: 1500px; margin-left: 0;" id="footer" class="footer dark-background">
+
+    {%include 'footer.html'%}
+
+
+</footer>

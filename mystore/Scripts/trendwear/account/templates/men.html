@@ -1,0 +1,98 @@
+{%include 'navbar.html'%}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar {
+            background-color: transparent;
+        }
+
+        .sub-navbar {
+            background-color: transparent;
+        }
+
+        .img3 {
+
+            width: 80%;
+
+            padding: 0 0% 100px 20%;
+        }
+
+        .video2 {
+            top: 0;
+            display: block;
+            width: 100%;
+            /* height: auto; */
+            padding: 0 10px 0 10px;
+        }
+
+        .sapce {
+            height: 500px;
+        }
+
+        .btn a {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <video class="video2" width="90%" height="auto" autoplay muted loop>
+            <source src="{%static 'imgs/video2.webm'%}">
+        </video>
+    </div>
+    <br><br>
+    <div class="d1">
+        <img class="img3" src="{%static 'imgs/img3.png'%}" alt="loading">
+    </div>
+
+    <div id="list" class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <h1 class="h1">View All</h1>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for product in products %}
+
+                <div class="col" style="width: 20%;">
+                    <div class="card">
+                        <div class="card-body">
+
+
+                            <img class="card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+
+                            <p class="card-text"> {{ product.name }}</p>
+                            <p class="card-text">Price: ₹{{ product.price }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                                        <a href="/addtocart/{{product.id}}">Add to Cart</a>
+                                        <!-- # print('{{i.id}}') -->
+
+                                    </button>
+                                </div>
+                                <!-- <small class="text-body-secondary">9 mins</small> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p>No products available in this section.</p>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+    <footer id="footer" class="footer dark-background">
+
+        {%include 'footer.html'%}
+
+
+    </footer>
+</body>
+
+</html>

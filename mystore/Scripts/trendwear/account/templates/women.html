@@ -1,0 +1,95 @@
+{% include 'navbar.html' %}
+
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{%static 'css/main.css'%}">
+    <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        .img5 {
+            width: 100%;
+            padding: 0 110px 0 110px;
+        }
+
+        .h1 {
+            width: 100%;
+            padding: 0px 0 10px 0px;
+            font-size: 30px;
+            text-decoration: underline;
+        }
+
+        #list {
+            margin-top: 0px;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card-text {
+            font-size: 16px;
+        }
+
+        .site {
+            margin-right: 1110px;
+        }
+
+        .para {
+            margin-top: 50px
+        }
+
+        .btn a {
+            color: black;
+        }
+    </style>
+</head>
+
+
+<div>
+    <img class="img5" src="{% static 'imgs/img5.jpg' %}" alt="">
+</div>
+
+<div id="list" class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <h1 class="h1">All Products</h1>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for product in products %}
+
+            <div class="col" style="width: 20%;">
+                <div class="card">
+                    <div class="card-body">
+
+
+                        <img class="card-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+
+                        <p class="card-text"> {{ product.name }}</p>
+                        <p class="card-text">Price: ₹{{ product.price }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">
+                                    <a href="/addtocart/{{product.id}}">Add to Cart</a>
+                                    <!-- # print('{{i.id}}') -->
+
+                                </button>
+                            </div>
+                            <!-- <small class="text-body-secondary">9 mins</small> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>No products available in this section.</p>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+<footer id="footer" class="footer dark-background">
+
+    {%include 'footer.html'%}
+
+
+</footer>

@@ -1,0 +1,111 @@
+{% include 'navbar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #343a40;
+            padding: 1rem;
+            color: white;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .checkout-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .checkout-wrap {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        .checkout-wrap h2 {
+            color: #343a40;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkout-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin: 0.5rem 0;
+            display: inline-block;
+        }
+
+        .btn-cod {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-paypal {
+            background-color: #0070ba;
+            color: white;
+        }
+
+        .btn-disabled {
+            background-color: #6c757d;
+            color: white;
+            cursor: not-allowed;
+        }
+
+        .checkout-wrap p {
+            color: #6c757d;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="checkout-container">
+        <div class="checkout-wrap">
+            <h2>Complete Your Purchase</h2>
+            <button class="checkout-button btn-cod">CASH ON DELIVERY</button>
+
+            <form method="POST" action="#">
+                <!-- Include CSRF Token -->
+                <input type="hidden" name="amount" value="500">
+                <button type="submit" class="checkout-button btn-paypal">PAY ONLINE WITH PAYPAL</button>
+            </form>
+
+            <p>Other payment methods coming soon...</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

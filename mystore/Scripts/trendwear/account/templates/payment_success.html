@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+
+    <!-- Icon and Google Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        .order-confirm-main {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f7f7f7;
+        }
+
+        .orderwrap {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgb(67, 70, 68);
+            text-align: center;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .orderwrap i {
+            font-size: 64px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .orderwrap p {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .orderwrap a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 30px;
+            background-color: #3a3c3a;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .orderwrap a:hover {
+            background-color: #388E3C;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .orderwrap {
+                padding: 30px 20px;
+            }
+
+            .orderwrap i {
+                font-size: 48px;
+            }
+
+            .orderwrap p {
+                font-size: 16px;
+            }
+
+            .orderwrap a {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Order Confirmation Section -->
+    <div class="order-confirm-main">
+        <div class="orderwrap">
+            <i class="ri-checkbox-circle-line"></i>
+            <p>Thank you for trusting TrendWear with your purchase! Your order is on its way to you.</p>
+            <p>Your order has been successfully placed!</p>
+            <a href="/">Continue Shopping</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    {% include 'footer.html' %}
+</body>
+
+</html>

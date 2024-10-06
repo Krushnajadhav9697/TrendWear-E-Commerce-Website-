@@ -1,0 +1,77 @@
+{%load static%}
+<style>
+    .back-to-home {
+        position: absolute;
+        top: 0px;
+        right: 5px;
+        text-decoration: none;
+        color: #333;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .back-to-home i {
+        margin-right: 8px;
+        /* Space between the icon and text */
+    }
+
+    .back-to-home:hover {
+        color: #007bff;
+        /* Change color on hover */
+    }
+</style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{%static 'css/login.css'%}">
+
+
+
+
+<body>
+
+
+
+    <div class="page">
+        <a href="/" class="back-to-home">
+            <i class="fas fa-arrow-left"></i>Home
+        </a>
+
+        {%for message in messages%}
+        <div class="container mt-3">
+
+            <div class="alert alert-info {{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+        </div>
+        {%endfor%}
+
+        <h2>Log-in To TrendWear</h2>
+        <form method="POST">
+            {%csrf_token%}
+            <div class="detail">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" placeholder="Username" required>
+            </div>
+            <div class="detail">
+                <label for="password">Password</label>
+                <div class="password-container">
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                    <!-- <button type="button" class="show-hide-btn">SHOW</button> -->
+                </div>
+            </div>
+            <!-- <div class="forgot-pass">
+            <a href="#">Forgot password?</a>
+        </div> -->
+            <input class="log" type="submit" value="Login">
+            <div class="log-in">
+                <p>Don’t have an account? <a href="register">register here</a></p>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>

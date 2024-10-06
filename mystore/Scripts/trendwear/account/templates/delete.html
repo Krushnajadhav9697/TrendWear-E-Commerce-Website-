@@ -1,0 +1,66 @@
+{%include 'navbar.html'%}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Delete</title>
+    <!-- <link rel="stylesheet" href="{% static 'css/static.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .button-yes {
+            background-color: #e60000;
+        }
+
+        .button-no {
+            background-color: #666666;
+        }
+
+        .button-no:hover,
+        .button-yes:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Are You Sure You Want To Remove {{ object }} </h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <button type="submit" class="button button-yes" name="confirm" value="yes">Yes</button>
+        <a href="/clist" class="button button-no">No</a>
+    </form>
+
+</body>
+
+</html>

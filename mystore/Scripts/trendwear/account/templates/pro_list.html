@@ -1,0 +1,22 @@
+<h1>Product List</h1>
+
+<!-- Navigation bar for gender sorting -->
+<!-- <nav>
+    <ul>
+        {% for key, value in section_choices.items %}
+        <li><a href="{% url 'section_view' key %}">{{ value }}</a></li>
+        {% endfor %}
+    </ul>
+</nav> -->
+
+<!-- Display products -->
+<div>
+    {% for product in products %}
+    <div>
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" width="150px" height="150px">
+        <h3>{{ product.name }}</h3>
+        <p>Price: ₹{{ product.price }}</p>
+        <p>{{ product.description }}</p>
+    </div>
+    {% endfor %}
+</div>
